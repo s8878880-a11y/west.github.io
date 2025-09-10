@@ -6,15 +6,16 @@
     <title>House West - Гимназия Примакова</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #e0f2e9;
-            --secondary-color: #c8e6d3;
-            --accent-color: #a5d6bb;
-            --text-color: #2d4a3a;
-            --light-color: #f7fbf9;
-            --dark-color: #1e3227;
+            --primary-color: #d8f3dc;
+            --secondary-color: #b7e4c7;
+            --accent-color: #95d5b2;
+            --dark-accent: #40916c;
+            --text-color: #1b4332;
+            --light-color: #f1f8f4;
+            --dark-color: #2d6a4f;
             --transition: all 0.3s ease;
         }
         
@@ -25,18 +26,23 @@
         }
         
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--light-color);
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(184, 233, 200, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(148, 210, 180, 0.2) 0%, transparent 40%);
         }
         
         h1, h2, h3, h4 {
-            font-family: 'Raleway', sans-serif;
-            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
             margin-bottom: 1.5rem;
-            color: var(--dark-color);
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .container {
@@ -52,14 +58,15 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(224, 242, 233, 0.95);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            background: rgba(216, 243, 220, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
+            border-bottom: 1px solid var(--accent-color);
         }
         
         header.scrolled {
-            background-color: var(--primary-color);
-            padding: 0.5rem 0;
+            background: rgba(216, 243, 220, 0.95);
         }
         
         .header-container {
@@ -78,26 +85,29 @@
             width: 60px;
             height: 60px;
             margin-right: 15px;
-            background: #fff;
+            background: var(--light-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            border: 2px solid var(--accent-color);
-            box-shadow: 0 0 10px rgba(165, 214, 187, 0.3);
+            border: 2px solid var(--dark-accent);
+            box-shadow: 0 0 15px rgba(64, 145, 108, 0.3);
+            overflow: hidden;
         }
         
-        .logo-img-placeholder {
-            font-size: 24px;
-            color: var(--dark-color);
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .logo-text {
-            color: var(--dark-color);
-            font-size: 1.5rem;
+            color: var(--text-color);
+            font-size: 1.8rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
         
         .nav-links {
@@ -107,13 +117,14 @@
         }
         
         .nav-links a {
-            color: var(--dark-color);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
             font-size: 1.1rem;
             transition: var(--transition);
             position: relative;
             padding: 0.5rem 0;
+            font-family: 'Orbitron', sans-serif;
         }
         
         .nav-links a:after {
@@ -123,7 +134,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: var(--accent-color);
+            background: linear-gradient(90deg, var(--dark-accent), var(--accent-color));
             transition: var(--transition);
         }
         
@@ -132,7 +143,7 @@
         }
         
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--dark-accent);
         }
         
         /* Hero Section */
@@ -147,6 +158,19 @@
             color: white;
             padding: 0 2rem;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 20%, rgba(183, 228, 199, 0.2) 0%, transparent 30%),
+                        radial-gradient(circle at 30% 80%, rgba(149, 213, 178, 0.2) 0%, transparent 30%);
+            pointer-events: none;
         }
         
         .hero-content {
@@ -156,12 +180,25 @@
         }
         
         .hero .motto {
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
             color: var(--primary-color);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero .motto::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
         }
         
         .hero .subtitle {
@@ -172,6 +209,7 @@
             margin-left: auto;
             margin-right: auto;
             color: white;
+            font-family: 'Rajdhani', sans-serif;
         }
         
         .scroll-down {
@@ -183,27 +221,29 @@
             font-size: 2rem;
             animation: bounce 2s infinite;
             cursor: pointer;
+            z-index: 3;
         }
         
         /* Sections */
         section {
             padding: 6rem 0;
+            position: relative;
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
-            color: var(--dark-color);
+            font-size: 3rem;
+            color: var(--text-color);
             position: relative;
             margin-bottom: 3.5rem;
         }
         
-        .section-title:after {
+        .section-title::after {
             content: '';
             position: absolute;
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-color);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--dark-accent), var(--accent-color));
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
@@ -212,43 +252,73 @@
         .about {
             background-color: var(--primary-color);
             position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.1;
         }
         
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: 3rem;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
         
         .about-text p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 1.5rem;
             line-height: 1.8;
-            text-align: justify;
+            text-align: center;
+            font-weight: 400;
         }
         
-        .about-image {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+        .hexagon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
         }
         
-        .about-image:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .about-image .placeholder {
-            height: 350px;
+        .hexagon {
+            position: relative;
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            color: var(--dark-color);
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--dark-accent);
+        }
+        
+        .hexagon:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .hexagon-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hexagon h3 {
             font-size: 1.2rem;
-            background: var(--secondary-color);
+            margin-bottom: 0.5rem;
         }
         
         .gymnasium {
@@ -256,63 +326,67 @@
             position: relative;
         }
         
+        .gymnasium::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
         .gymnasium-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: 3rem;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
         
         .gymnasium-text p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 1.5rem;
             line-height: 1.8;
-            text-align: justify;
-        }
-        
-        .gymnasium-image {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            order: -1;
-            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
-        }
-        
-        .gymnasium-image .placeholder {
-            height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark-color);
-            font-size: 1.2rem;
-            background: var(--accent-color);
-        }
-        
-        /* Features Section */
-        .features {
-            background: var(--primary-color);
-            padding: 6rem 0;
+            text-align: center;
+            font-weight: 400;
         }
         
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
+            gap: 2rem;
             margin-top: 3rem;
         }
         
         .feature-card {
-            background: var(--light-color);
-            border-radius: 15px;
+            background: var(--primary-color);
+            border-radius: 10px;
             padding: 2.5rem 2rem;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
+            border: 1px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--dark-accent), var(--accent-color));
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
         
         .feature-icon {
@@ -325,13 +399,14 @@
             justify-content: center;
             margin: 0 auto 1.5rem;
             font-size: 28px;
-            color: var(--dark-color);
+            color: var(--text-color);
+            border: 2px solid var(--dark-accent);
         }
         
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: var(--dark-color);
+            color: var(--text-color);
         }
         
         .feature-card p {
@@ -341,15 +416,31 @@
         
         /* Footer */
         footer {
-            background-color: var(--dark-color);
+            background: linear-gradient(to bottom, var(--dark-color), var(--text-color));
             color: white;
             padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.1;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 3rem;
+            position: relative;
+            z-index: 2;
         }
         
         .footer-logo {
@@ -367,17 +458,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
             border: 2px solid var(--accent-color);
+            overflow: hidden;
         }
         
-        .footer-logo-img-placeholder {
-            font-size: 32px;
-            color: var(--dark-color);
+        .footer-logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .footer-logo h3 {
-            color: var(--light-color);
+            color: var(--primary-color);
             margin-bottom: 1rem;
         }
         
@@ -401,14 +493,15 @@
         }
         
         .footer-links a {
-            color: var(--light-color);
+            color: var(--primary-color);
             text-decoration: none;
             transition: var(--transition);
+            display: inline-block;
         }
         
         .footer-links a:hover {
             color: var(--accent-color);
-            padding-left: 5px;
+            transform: translateX(5px);
         }
         
         .footer-bottom {
@@ -416,6 +509,8 @@
             margin-top: 3rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
         }
         
         .footer-bottom p {
@@ -437,16 +532,7 @@
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            .about-content, .gymnasium-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .gymnasium-image {
-                order: 0;
-            }
-            
-            .features-grid {
+            .hexagon-grid, .features-grid {
                 grid-template-columns: 1fr 1fr;
             }
             
@@ -472,7 +558,7 @@
             }
             
             .hero .motto {
-                font-size: 3.2rem;
+                font-size: 3.5rem;
             }
             
             .hero .subtitle {
@@ -480,10 +566,10 @@
             }
             
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
-            .features-grid {
+            .hexagon-grid, .features-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -498,7 +584,7 @@
             }
             
             .hero .motto {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .hero .subtitle {
@@ -507,6 +593,11 @@
             
             section {
                 padding: 4rem 0;
+            }
+            
+            .hexagon {
+                height: 180px;
+                padding: 1.5rem;
             }
             
             .feature-card {
@@ -521,14 +612,14 @@
         <div class="container header-container">
             <div class="logo">
                 <div class="logo-img">
-                    <div class="logo-img-placeholder">W</div>
+                    <img src="west.png" alt="West House Logo">
                 </div>
-                <div class="logo-text">House West</div>
+                <div class="logo-text">WEST HOUSE</div>
             </div>
             <ul class="nav-links">
                 <li><a href="#about">О нас</a></li>
                 <li><a href="#gymnasium">Гимназия</a></li>
-                <li><a href="#features">Преимущества</a></li>
+                <li><a href="#values">Ценности</a></li>
                 <li><a href="#footer">Сообщество</a></li>
             </ul>
         </div>
@@ -538,7 +629,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1 class="motto">Proud and Free</h1>
-            <p class="subtitle">Хаус West - сообщество гордых и свободных учеников гимназии Примакова</p>
+            <p class="subtitle">Хаус West - футуристичное сообщество гордых и свободных учеников гимназии Примакова</p>
         </div>
         <div class="scroll-down" onclick="scrollToSection('about')">↓</div>
     </section>
@@ -549,12 +640,25 @@
             <h2 class="section-title">О нас</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Добро пожаловать в хаус West - сообщество, где гордость и свобода являются нашими главными ценностями. Мы стремимся к excellence во всех сферах школьной жизни: академических достижениях, спортивных соревнованиях, творческих начинаниях и социальной активности.</p>
-                    <p>Наш хаус объединяет студентов, которые ценят традиции, уважают друг друга и стремятся к постоянному развитию. Мы гордимся нашими достижениями и свободой самовыражения, которая позволяет каждому ученику раскрыть свой потенциал.</p>
-                    <p>Присоединяйтесь к нам и станьте частью семьи, где каждый голос важен, а каждое достижение отмечается с гордостью!</p>
+                    <p>Добро пожаловать в хаус West - футуристичное сообщество, где гордость и свобода являются нашими главными ценностями. Мы стремимся к excellence во всех сферах школьной жизни, сочетая традиции с инновациями.</p>
+                    <p>Наш хаус объединяет студентов, которые ценят технологии, уважают друг друга и стремятся к постоянному развитию. Мы гордимся нашими достижениями и свободой самовыражения, которая позволяет каждому ученику раскрыть свой потенциал в цифровую эпоху.</p>
                 </div>
-                <div class="about-image">
-                    <div class="placeholder">Участники хауса West</div>
+                <div class="hexagon-grid">
+                    <div class="hexagon">
+                        <div class="hexagon-icon">🚀</div>
+                        <h3>Инновации</h3>
+                        <p>Используем современные технологии</p>
+                    </div>
+                    <div class="hexagon">
+                        <div class="hexagon-icon">🌵</div>
+                        <h3>Дух Запада</h3>
+                        <p>Свобода и независимость</p>
+                    </div>
+                    <div class="hexagon">
+                        <div class="hexagon-icon">👥</div>
+                        <h3>Сообщество</h3>
+                        <p>Поддержка и сотрудничество</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -568,33 +672,29 @@
                 <div class="gymnasium-text">
                     <p>Гимназия имени Е.М. Примакова - это инновационное образовательное учреждение, которое сочетает в себе лучшие традиции российского образования и современные международные подходы к обучению. Мы готовим будущих лидеров, способных мыслить критически, действовать ответственно и вносить вклад в развитие общества.</p>
                     <p>Система хаусов в гимназии способствует развитию командного духа, лидерских качеств и здоровой конкуренции среди студентов. Каждый хаус представляет собой уникальное сообщество со своей историей, ценностями и традициями.</p>
-                    <p>Гимназия предлагает разнообразные образовательные программы, современное оборудование и высококвалифицированных преподавателей, что создает идеальные условия для всестороннего развития личности.</p>
-                </div>
-                <div class="gymnasium-image">
-                    <div class="placeholder">Гимназия Примакова</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- Values Section -->
+    <section id="values" class="about">
         <div class="container">
-            <h2 class="section-title">Наши ценности</h2>
+            <h2 class="section-title">Наши принципы</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">👑</div>
+                    <div class="feature-icon">⭐</div>
                     <h3>Гордость</h3>
                     <p>Мы гордимся нашими достижениями, традициями и каждым членом нашего сообщества.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🕊️</div>
+                    <div class="feature-icon">⚡</div>
                     <h3>Свобода</h3>
                     <p>Мы ценим свободу самовыражения и создаем пространство для раскрытия талантов.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🤝</div>
-                    <h3>Сообщество</h3>
+                    <h3>Взаимопомощь</h3>
                     <p>Мы поддерживаем друг друга и вместе достигаем выдающихся результатов.</p>
                 </div>
             </div>
@@ -607,9 +707,9 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <div class="footer-logo-img">
-                        <div class="footer-logo-img-placeholder">W</div>
+                        <img src="west.png" alt="West House Logo">
                     </div>
-                    <h3>House West</h3>
+                    <h3>HOUSE WEST</h3>
                     <p>Сообщество гордых и свободных</p>
                 </div>
                 <div class="footer-links">
@@ -617,7 +717,7 @@
                     <ul>
                         <li><a href="#about">О нас</a></li>
                         <li><a href="#gymnasium">Гимназия</a></li>
-                        <li><a href="#features">Наши ценности</a></li>
+                        <li><a href="#values">Наши принципы</a></li>
                         <li><a href="#footer">Сообщество</a></li>
                     </ul>
                 </div>
@@ -675,7 +775,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.about-image, .gymnasium-image, .feature-card').forEach(el => {
+        document.querySelectorAll('.hexagon, .feature-card').forEach(el => {
             observer.observe(el);
         });
     </script>
